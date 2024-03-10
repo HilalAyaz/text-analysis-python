@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Text Analysis App</title>
+    <meta
+      name="description"
+      content="Analyze text for number of paragraphs, sentences, words, characters, and most common words."
+    />
+    <meta
+      name="keywords"
+      content="text analysis, text analyzer, analyze text, word count, character count, nltk, natural language processing"
+    />
+    <meta name="author" content="Hilal Ayaz" />
+
+    <link
+      href="{{ url_for('static', filename='styles.css') }}"
+      rel="stylesheet"
+    />
+  </head>
+  <body class="bg-gradient bg-dark-mode">
+    <div class="container mx-auto mt-10 glassmorphism p-6 rounded-md">
+      <h1 class="text-3xl font-bold mb-4 text-center text-white font-title">
+        Text Analysis App
+      </h1>
+      <form action="{{ url_for('index') }}" method="post" class="mb-4">
+        <textarea
+          name="text"
+          rows="10"
+          class="textarea-style"
+          placeholder="Enter text here..."
+        >
+{{ request.form.text }}</textarea
+        >
+        <button type="submit" class="btn-style">Analyze Text</button>
+      </form>
+
+      {% if results %}
+      <div class="card bg-white rounded-md p-4 mt-2 glassmorphism">
+        <h2 class="text-2xl font-bold mb-2 font-sub">Analysis Results:</h2>
+        <p>
+          <strong>Number of Paragraphs:</strong> {{ results.num_paragraphs }}
+        </p>
+        <p><strong>Number of Sentences:</strong> {{ results.num_sentences }}</p>
+        <p><strong>Number of Words:</strong> {{ results.num_words }}</p>
+        <p>
+          <strong>Number of Characters:</strong> {{ results.num_characters }}
+        </p>
+        <p>
+          <strong>Average Words per Sentence:</strong> {{
+          results.avg_words_per_sentence }}
+        </p>
+        <p>
+          <strong>Number of Characters per Word:</strong> {{
+          results.avg_characters_per_word }}
+        </p>
+        <p><strong>Most Common Words:</strong></p>
+        <ul>
+          {% for word, count in results.most_common_words %} {% if count > 3 %}
+          <li>{{ word }} is repeated {{ count }} times.</li>
+          {% endif %} {% endfor %}
+        </ul>
+      </div>
+      {% endif %}
+    </div>
+  </body>
+</html>

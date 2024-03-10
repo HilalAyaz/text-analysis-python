@@ -1,0 +1,97 @@
+/* Base styles */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #1e1e1e;
+    color: #fff;
+    margin: 0;
+    overflow: hidden;
+    /* Prevent scrollbar */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.container {
+    max-width: 800px;
+    padding: 0 20px;
+    box-sizing: border-box;
+    width: 800px;
+}
+
+.font-title {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 36px;
+    text-align: center;
+    color: blueviolet;
+}
+
+.font-sub {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 24px;
+    color: blueviolet;
+
+}
+
+/* Textarea styles */
+.textarea-style {
+    width: 100%;
+    min-height: 120px;
+    height: 500px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    resize: vertical;
+    background-color: rgba(255, 255, 255, 0.1);
+    color: #fff;
+    box-sizing: border-box;
+    outline: none;
+    outline-offset: none;
+    font-size: 14px;
+    max-height: 800px;
+}
+
+.textarea-style::placeholder {
+    color: #ccc;
+}
+
+/* Button styles */
+.btn-style {
+    background-color: #007bff;
+    color: #fff;
+    padding: 12px 24px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-top: 10px;
+}
+
+.btn-style:hover {
+    background-color: #0056b3;
+}
+
+/* Card styles */
+.card {
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+    padding: 20px;
+    margin-top: 20px;
+}
+
+/* Glassmorphism effect */
+.glassmorphism {
+    backdrop-filter: blur(10px);
+    background-clip: padding-box;
+}
+
+/* Gradient background and dark mode */
+.bg-dark-mode {
+    background-color: #1e1e1e;
+}
+
+.bg-gradient {
+    background: linear-gradient(45deg, #2e2e2e, #0d0d0d);
+    transition: background 0.3s ease;
+}
